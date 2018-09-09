@@ -1,0 +1,48 @@
+<!--
+
+  The client sees an HTML page on their browser.  The HTML page is being displayed in the
+  browser as JavaScript, which has been compiled from TypeScript in the Angular application.
+
+  The SPA, which in this case is an Angular application, gets the values via the API.
+  I’m using the DotNetCLI to create the WebAPI.
+
+  
+ 2:13
+
+ app.module.ts “Bootstraps” the AppComponent.  The AppComponent has a Selector,
+ which is basically a tag that’s put inside an HTML page.  Since I’m building a SPA,
+ there’s only one single HTML page: index.html.  In the body of index.html, I have
+ <app-root></app-root>.  This is my AppComponent Selector.  The contents of
+ <app-root></app-root> will be replaced by whatever is inside app.component.html.
+
+ index.html doesn’t have a “script” tag inside of it that refers to TypeScript,
+ so what calls main.ts?  There is some “behind the scenes Angular magic” that uses
+ a “module bundler” and a “task runner” called WebPack.  WebPack bundles my
+ application into JavaScript.  At the same time, WebPack will inject this JavaScript
+ into my index.html file when it builds it.  The configuration (actually it’s Angular
+ abstracting the functionality from WebPack because WebPack can be complex to
+ configure) for WebPack can be found in angular.json.  In other words, angular.json
+ has the settings that WebPack needs to bundle my application.  These settings
+ include a reference to src/main.ts and the index (src/index.html) into which it will
+ then inject my JavaScript files.
+
+-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DatingAppSPA</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+
+

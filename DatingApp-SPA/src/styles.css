@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*
+
+ 2:18
+
+ In angular.json, I have a ‘styles’ array which is an area where I can import styles,
+ including Bootstrap and Font-Awesome.  Because CSS, by its name, is “cascading”, I
+ can generally override styles based on the order of my styles.  In other words, the
+ Bootstrap styles would be first, then the Font-Awesome styles would be second, and
+ then I would add my own custom styles to override Bootstrap and Font-Awesome where
+ necessary.  However, the ‘styles’ array in angular.json of the current Angular CLI
+ doesn’t respect the order of styles.
+
+ The solution is to import the Bootstrap styles into the ‘styles.css’ of my
+ angular.json.  If I go to the actual ‘styles.css’ file in my Solution Explorer,
+ there’s a comment telling me that I can “add global styles to this file, and also
+ import other style files”.  To import Bootstrap and Font-Awesome into my ‘styles.css’
+ file, I type:
+ “@import ‘. ./node_modules/bootstrap/dist/css/bootsrap.min.css’ ”
+ “@import ‘. ./node_modules/font-awesome/css/font-awesome.min.css’ ”
+
+ Now, if I want, I can go to app.component.html to edit any of the html (just to create
+ a change that will be affected by Bootstrap and / or Font-Awesome) before verifying
+ that my new styles are working on the page.
+
+*/
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';

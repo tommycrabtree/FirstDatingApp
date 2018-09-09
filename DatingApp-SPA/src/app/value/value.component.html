@@ -1,0 +1,42 @@
+<!--
+
+  2:17
+
+  Bind the data that I get back from the API to the HTML so that I can display it to
+  the Client.
+
+  Now it’s time to display the values onto the page.  In the Preview tab of my Network
+  on localhost:4200, I can already see the Server’s response is an array of objects.
+  This means I can iterate over this response and display the values in my Component’s
+  Template, which is value.component.html.  After getValues( ) has been called and it’s
+  gone to the API, it populates this.values (my Class Property).
+
+  By the way, any Properties that are attached to a Class are called ‘this.’ Followed by
+  the name of the Property.  The same is true for Methods inside the context of the
+  Class; i.e. this.getValues( ).  Basically, the ‘this’ keyword is used a lot in Angular
+  because I’m often creating Class Properties and Class Methods.
+
+  My value.component.html (my Component Template) can access the ‘values’ Property in my
+  value.component.ts.  Angular provides tools (including some ‘Directives’), such as an
+  Angular ‘for loop’, in its Templates.  Typing ‘a-ngFor’ (and then pressing Tab) in my
+  Component Template provides the structure for an Angular ‘for loop’.  Keeping in mind
+  that ‘values’ is the Property from my ValueComponent Class, the code is:
+  ‘<p *ngFor=“let value of values”>’.  The ‘ngFor’ is a Structural Directive in Angular.
+  Structural Directives always have an asterisk before their Directive name.
+
+  Structural Directives change the DOM (Domain Object Model) in some way.  Because I’m
+  repeating the activity inside my <p> in the DOM of my Component Template, my code is
+  considered to be a Structural Directive.  Now I’ll use interpolation to display the
+  values that have been retrieved: ‘{{values.id}}, {{values.name}}’.  Now when I refresh
+  my localhost:4200, I’ll see that my API is capable of returning these values to my
+  Angular application, and that my browser can display the values on the page.  This
+  proves that I was able to create a database, structure the schema for the database,
+  put some values in the database, extract the values from the database using my API,
+  use my Angular application to get the values from my API, and then display them in
+  my browser.
+
+-->
+
+<p *ngFor="let value of values">
+  {{value.id}}, {{value.name}}
+</p>

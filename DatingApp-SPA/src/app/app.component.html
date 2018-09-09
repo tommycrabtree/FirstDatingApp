@@ -1,0 +1,45 @@
+<!--
+
+ 2:13
+
+ app.module.ts “Bootstraps” the AppComponent.  The AppComponent has a Selector,
+ which is basically a tag that’s put inside an HTML page.  Since I’m building a SPA,
+ there’s only one single HTML page: index.html.  In the body of index.html, I have
+ <app-root></app-root>.  This is my AppComponent Selector.  The contents of
+ <app-root></app-root> will be replaced by whatever is inside app.component.html.
+
+ In summary, the app.module.ts loads the AppComponent.  The AppComponent has an HTML
+ Template which is specified inside indext.html.
+
+ Now, if I run my SPA from the Command Prompt and view it on localhost:4200, I see
+ the page that is based on my html Template.  If I inspect the Elements tab of the
+ source code, I see five (5) JavaScript files that have been transpiled from TypeScript
+ into JavaScript (so that the browsers can understand the code) and bundled by WebPack.
+
+-->
+
+<!--
+
+  2:15
+
+  I want to include my App ValueComponent Template in here, so inside the first ‘div’
+  (after the first ‘h1’), I just type <app-value></app-value> because I want the
+  ‘selector’ (of my App ValueComponent Template) here as something similar to an HTML
+  tag.  Now, when my AppComponent loads, it will load my App Value (the ValueComponent)
+  as well.  My ValueComponent is going out to my API to retrieve the values.  I won’t
+  see my values on the browser yet, but I should be able to see them inside the Console
+  (once CORS are implemented).  Because I’m pulling back data from my API, both the SPA
+  and the API need to be running.  At this point, I’ll see an error in my Console that
+  says: “No ‘Access-Control-Allow-Origin’ header is present on the requested resource.”
+  The solution is ‘Cross Origin Resource Sharing’ (CORS) requests in my API.
+
+-->
+
+<div>
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <app-value></app-value>
+</div>
+
+
